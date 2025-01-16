@@ -7,12 +7,12 @@ This project implements a Master-Slave system where two devices communicate usin
 
 ## Components Required
 
-- 2x Arduino (Master and Slave devices)
-- 2x nRF24L01 modules
-- 2x Green LEDs (for both Master and Slave)
-- 1x Red LED (optional)
-- 1x Blue LED (optional)
-- 2x Push buttons (for Slave to acknowledge)
+- 3x Arduino (Master and two Slaves devices)
+- 3x nRF24L01 modules
+- 3x Green LEDs (for both Master and Slave)
+- 3x Red LED (optional)
+- 3x Blue LED (optional)
+- 6x Push buttons
 - Jumper wires
 - Breadboard
 
@@ -63,15 +63,17 @@ This project requires the following libraries:
 
 ### Master Device
 
-1. The Master device will constantly listen for a button press on the Slave device.
-2. When the Slave button is pressed, the Master sends a signal to the Slave to initiate blinking of the green LED.
-3. The Master then starts blinking its green LED for a duration (1 second) after receiving the signal from the Slave.
+1. The master device will push a button to either slave device to be called
+2. The Master device will constantly listen for a button press on the Slave device.
+3. When the Slave button is pressed, the Master sends a signal to the Slave to initiate blinking of the green LED.
+4. The Master then starts blinking its green LED for a duration (1 second) after receiving the signal from the Slave.
 
 ### Slave Device
 
 1. The Slave device listens for a signal from the Master device.
 2. Upon receiving a signal from the Master, the Slave device starts blinking its green LED for the same duration.
 3. After acknowledging the signal, the green LED on both Master and Slave turns off.
+4. the slave devices can also communicate which each other.
 
 ## Code Explanation
 
